@@ -1,5 +1,8 @@
 <?php
-$title = "sono un titolo";
+
+$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' .
+  '0123456789`-=~!@#$%^&*()_+,./<>?;:[]{}\|';
+
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +22,19 @@ $title = "sono un titolo";
 </head>
 
 <body>
-  <h1>
-    <?php echo $title; ?>
-  </h1>
+  <div class="container">
+    <form action="GET">
+      <div class="mb-3">
+        <label for="number-chars">Da quanti caratteri sarà formata la tua password?</label>
+      </div>
+      <div class="mb-3">
+        <input class="form-control w-50" type="number" min="0" name="number-chars" id="number-chars">
+      </div>
+      <button class="btn btn-primary">Invia</button>
+    </form>
+  </div>
+
+
 </body>
 
 </html>
