@@ -3,9 +3,16 @@ function get_random_password($number)
 {
   $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
 
-  $random_password = substr($chars, 0, $number);
+  $random_password = '';
 
-  return var_dump($random_password);
+  for ($i = 0; $i < $number; $i++) {
+
+    $random_start = rand(0, 72);
+
+    $random_password .= substr($chars, $random_start, 1);
+  }
+
+  return $random_password;
 }
 
 $has_number = isset($_GET['number-chars']);
@@ -60,7 +67,7 @@ if ($has_number) {
 
     <?php if ($has_number): ?>
     <h1>
-      <?php get_random_password($number) ?>
+      <?php echo get_random_password($number) ?>
     </h1>
     <?php endif; ?>
   </div>
