@@ -1,4 +1,13 @@
 <?php
+function get_random_password($number)
+{
+  $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+
+  $random_password = substr($chars, 0, $number);
+
+  return var_dump($random_password);
+}
+
 $has_number = isset($_GET['number-chars']);
 
 if ($has_number) {
@@ -48,6 +57,12 @@ if ($has_number) {
       </div>
       <button class="btn btn-primary">Invia</button>
     </form>
+
+    <?php if ($has_number): ?>
+    <h1>
+      <?php get_random_password($number) ?>
+    </h1>
+    <?php endif; ?>
   </div>
 
 </body>
