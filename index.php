@@ -5,6 +5,7 @@ include __DIR__ . "/partials/_functions.php";
 $has_number = isset($_GET['number-chars']);
 
 if ($has_number) {
+
   $number = $_GET['number-chars'];
 
   $input_valid = false;
@@ -12,8 +13,12 @@ if ($has_number) {
     $input_valid = true;
   }
   ;
-}
+  session_start();
 
+  $_SESSION['password'] = get_random_password($number);
+  var_dump($_SESSION['password']);
+  header('Location: ./results.php');
+}
 
 ?>
 
@@ -42,7 +47,7 @@ if ($has_number) {
     </div>
     <?php endif; ?>
 
-    <form method="GET">
+    <form action="" method="GET">
       <div class="mb-3">
         <label for="number-chars">Da quanti caratteri sarà formata la tua password?</label>
       </div>
@@ -51,12 +56,6 @@ if ($has_number) {
       </div>
       <button class="btn btn-primary">Invia</button>
     </form>
-
-    <?php if ($has_number): ?>
-    <h1> La tua Passsword è :
-      <?php echo get_random_password($number) ?>
-    </h1>
-    <?php endif; ?>
   </div>
 
 </body>

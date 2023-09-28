@@ -1,4 +1,5 @@
 <?php
+
 function get_random_password($number)
 {
   $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
